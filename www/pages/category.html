@@ -1,0 +1,144 @@
+<div id="category">
+    <span class="title f-align-center m-bottom-10">Manga Kategorileri</span>
+    <select id="list" class="spe">
+        <option value="null">--KATEGORI SEÇİNİZ--</option>
+        <option>Aksiyon</option>
+        <option>Askeri</option>
+        <option>Bilim Kurgu</option>
+        <option>Büyü</option>
+        <option>Doğa Üstü</option>
+        <option>Doujinshi</option>
+        <option>Dram</option>
+        <option>Ecchi</option>
+        <option>Fantezi</option>
+        <option>Fantastik</option>
+        <option>Gerilim</option>
+        <option>Gizem</option>
+        <option>Harem</option>
+        <option>Josei</option>
+        <option>Komedi</option>
+        <option>Korku</option>
+        <option>Macera</option>
+        <option>Müzik</option>
+        <option>Okul Hayatı</option>
+        <option>OneShot</option>
+        <option>Oyun</option>
+        <option>Parodi</option>
+        <option>Polisiye</option>
+        <option>Psikolojik</option>
+        <option>Robotlar</option>
+        <option>Romantizm</option>
+        <option>Samuray</option>
+        <option>Seinen</option>
+        <option>Shoujo</option>
+        <option>ShoujoAi</option>
+        <option>Shounen</option>
+        <option>ShounenAi</option>
+        <option>Smut</option>
+        <option>Spor</option>
+        <option>Süper Güçler</option>
+        <option>Şeytanlar</option>
+        <option>Tarihi</option>
+        <option>Trajedi</option>
+        <option>Uzay</option>
+        <option>Vampir</option>
+        <option>Webtoon</option>
+        <option>Yaoi</option>
+        <option>Yuri</option>
+        <option>Yetişkin</option>
+        <option>Günlük Yaşam</option>
+        <option>Dövüş Sanatları</option>
+        <option>Cinsiyet Değişimi</option>
+    </select>
+
+    <button class="spe" id="kat-ara">Ara</button>
+
+    <span class="block f-align-center" id="r-data" style="display:none;"></span>
+</div>
+
+<script>
+    var cat_block   = false;
+
+    $('div#category > button#kat-ara').on('click',function(){
+        var cat = $('select#list').val();
+        if( cat_block == false )
+        {
+            if( !cat || cat == 'null' )
+            {
+                alert('Lütfen kategori seçiniz!');
+            }
+            else
+            {
+
+                cat_block = true;
+                this.innerHTML = '<img src="img/loading.gif" width="25" height="25">';
+                $.ajax({
+                    url : SETTINGS.API.url,
+                    type: 'post',
+                    data:{
+                        'md_request':true,
+                        'md_kategori_arama':true,
+                        'data':{
+                            'text':cat
+                        }
+                    },
+                    success:function(data){
+                        cat_block = false;
+                        $('div#category > button#kat-ara').html('Ara');
+                        data = JSON.parse(data);
+
+                        if( data.code == 0 )
+                        {
+                            alert('Lütfen kategori seçiniz');
+                        }
+                        else if( data.code == 2 )
+                        {
+                            $('div#category > span#r-data').html('Sonuç bulunamadı.').fadeIn(350);
+                            document.body.scrollTop = 9999*9999;
+                        }
+                        else if( data.code == 1 )
+                        {
+                            //en son sayfalama indexini ve datayı sıfırla
+                            showOptions.categories.startIndex = 0;
+                            showOptions.categories.data = null;
+
+                            //datayı ata
+                            showOptions.categories.data = data['data'];
+
+                            //ekranı temizle
+                            $('#app-main').html('<div id="data"><span class="block f-align-center" style="font-size:26px; margin-bottom:5px;">Kategori Arama Sonuçları</span><span class="block f-align-center" style="font-size:18px; margin-bottom:10px;">(Toplam '+data['data'].length+' sonuç bulundu)</span></div>');
+
+                            //limite kadar olan ilk verileri göster
+                            for( var i=showOptions.categories.startIndex; i < (showOptions.categories.startIndex+showOptions.categories.limit); i++ )
+                            {
+                                var elem = data['data'][i];
+                                var dom = '<div class="manga-search"><div id="first"><img src="'+elem.manga_listesi_img+'" id="manga-img"><span id="title">'+elem.manga_listesi_ad+'</span><span class="block">Kategoriler: <span class="manga-data">'+elem.manga_listesi_tags+'</span></span></div><span id="content"><span class="block" style="margin-bottom:5px;">Hikaye:</span>'+elem.manga_listesi_aciklama+'</span><div id="zz"><button id="go" class="spe" db-id="'+elem.manga_listesi_id+'" db-img="'+elem.manga_listesi_img+'" db-title="'+elem.manga_listesi_ad+'" db-toplam-bolum="'+elem.manga_listesi_eklenen_bolum+'" db-kategori="'+elem.manga_listesi_tags+'" db-aciklama="'+elem.manga_listesi_aciklama+'" onclick="mangaInfoView(this)">Görüntüle</button></div></div>';
+
+                                $('#app-main > div#data').append(dom);
+
+                                $('div#app-main > * img').hide().after('<span class="block f-align-center" style="margin-bottom:30px;color:#888;"><img src="img/loading.gif" style="margin:0 auto;" class="block">Resim Yükleniyor..</span>').error(function(){
+                                    this.src = 'img/no-img.png';
+                                }).load(function(){
+                                    $(this).fadeIn(350).next().remove();
+                                });
+                            }
+                            document.body.scrollTop = 0; //sayfayı en yukarıya çek
+
+                            //daha fazla yükle butonunu ekle sayfaya
+                            $('#app-main').append('<button class="spe width-auto" id="d-g" onclick="showMore(\'categories\')">Devamını Göster</button>');
+                        }
+                    },
+                    error:function(){
+                        cat_block = false;
+                        $('div#category > button#kat-ara').html('Ara');
+                        alert('Bilinmeyen bir hata oluştu! (Hata no:971)');
+                    }
+                }); 
+            }
+        }
+        else
+        {
+            alert('İşleminiz devam etmektedir. Lütfen bekleyiniz!');
+        }
+    });
+</script>

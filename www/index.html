@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <title></title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/quick.css">
+    <script src="js/jquery-2.2.3.min.js"></script>
+</head>
+<body>
+    <div id="header">
+        <span id="app-title"></span>
+
+        <div id="menu-indicator" onclick="toggleMenu()">
+            <span id="bar"></span>
+            <span id="bar"></span>
+            <span id="bar"></span>
+        </div>
+
+        <div id="user-section">
+            <img src="img/user.png" id="user-img">
+        </div>
+    </div>
+
+    <div id="left-menu" status="0">
+        <ul id="menu">
+            <li onclick="loadPage()">Anasayfa</li>
+            <li onclick="loadPage('category')">Kategoriler</li>
+            <li onclick="loadPage('contact')">İletişim</li>
+            <li onclick="loadPage('credit')">Hakkında</li>
+        </ul>
+        <div id="manga-search">
+            <span class="title m-bottom-10 f-align-center" style="font-family:Bebas;">Manga Ara</span>
+            <input type="text" name="manga_search">
+            <button onclick="mangaSearch()">Ara</button>
+        </div>
+        <span id="app-version">1.0.0</span>
+    </div>
+
+    <div id="right-user-popup" status="0">
+        <div id="login">
+            <span class="block m-bottom-10">Kullanıcı Adı:</span>
+            <input type="text" name="login_kadi" class="spe no-margin">
+            
+            <br/>
+            <span class="block m-bottom-10">Şifre:</span>
+            <input type="password" name="login_sifre" class="spe no-margin">
+            
+            <br/>
+
+            <button class="spe no-margin" onclick="sendLoginRequest()">Giriş Yap</button>
+
+            <br/>
+            <span style="color:orangered;display:none;" id="forgot-password">Şifremi Unuttum</span>
+
+            <span class="right-side" id="register">Kayıt Ol</span>
+        </div>
+
+        <div id="register">
+            <span class="block m-bottom-10">Kullanıcı Adı:</span>
+            <input type="text" name="register_kadi" class="spe no-margin">
+            
+            <br/>
+            <span class="block m-bottom-10">Şifre:</span>
+            <input type="password" name="register_sifre" class="spe no-margin">
+            
+            <br/>
+            <span class="block m-bottom-10">Şifre<span style="color:#444;font-size:80%;">(Tekrar)</span>:</span>
+            <input type="password" name="register_sifre2" class="spe no-margin">
+
+            <br/>
+            <span class="block m-bottom-10">Eposta:</span>
+            <input type="text" name="register_eposta" class="spe no-margin">
+
+            <br/>
+
+            <button class="spe no-margin" onclick="sendRegisterRequest()">Kayıt Ol</button>
+
+            <span class="right-side" id="back">< Geri</span>
+        </div>
+    </div>
+
+    <div id="full-loader">
+        <img src="img/loading.gif" class="loader" id="werq">
+        <span id="lqwas" class="loader">Yükleniyor..</span>
+    </div>
+
+    <script>
+        $('div#left-menu > ul#menu > li').on('click',function(){
+            delay( function(){ //BU KISIM ANDROID 4.4 VE 5.0'DA SIKINTI ÇIKARABILIR!
+                toggleMenu();
+            }, 400 );
+        });
+
+        $('div#user-section').on('click',function(){
+            $('div#right-user-popup').fadeToggle(300);
+        });
+
+        $('div#right-user-popup > div#login > span#register').on('click',function(){
+            delay(function(){ //BU KISIM ANDROID 4.4 VE 5.0'DA SIKINTI ÇIKARABILIR!
+                $('div#right-user-popup > div#login').slideUp(300);
+                delay(function(){ //BU KISIM ANDROID 4.4 VE 5.0'DA SIKINTI ÇIKARABILIR!
+                    $('div#right-user-popup > div#register').slideDown(300);
+                },300);
+            }, 200);
+        });
+
+        $('div#right-user-popup > div#login > #forgot-password').on('click',function(){
+            alert('Yakında eklenecek!');
+        });
+
+        $('div#right-user-popup > div#register > span#back').on('click',function(){
+            delay(function(){ //BU KISIM ANDROID 4.4 VE 5.0'DA SIKINTI ÇIKARABILIR!
+                $('div#right-user-popup > div#register').slideUp(300);
+                delay(function(){ //BU KISIM ANDROID 4.4 VE 5.0'DA SIKINTI ÇIKARABILIR!
+                    $('div#right-user-popup > div#login').slideDown(300);
+                },300);
+            }, 200);
+        });
+    </script>
+
+    <div id="app-main"></div>
+    <div id="loading">
+        <img src="img/loading.gif" alt="Loading.." id="loader">
+        <span>Yükleniyor..</span>
+    </div>
+    <script src="cordova.js"></script>
+    <script src="js/loader.js" id="app-loader"></script>
+</body>
+</html>

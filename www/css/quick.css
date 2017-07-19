@@ -1,0 +1,176 @@
+/**
+  * QUICK CSS - Version 1.2
+  *
+  * Author: Ege Bilecen
+  * Contact: fb.com/EqeBilecen
+  *
+  * NOTE: All classes built in !important. So use carefully..
+  *
+  * www.egebilecen.com
+  *
+  */
+
+/*
+    //## Font Sizes (15px ~ 22px) ##//
+*/
+.f-15{font-size: 15px !important;}
+.f-16{font-size: 16px !important;}
+.f-17{font-size: 17px !important;}
+.f-18{font-size: 18px !important;}
+.f-19{font-size: 19px !important;}
+.f-20{font-size: 20px !important;}
+.f-21{font-size: 21px !important;}
+.f-22{font-size: 22px !important;}
+
+/*
+    //## Font Families ##//
+*/
+.arial{font-family: Arial !important;}
+
+/*
+    //## Font Weights (Bold-Normal) ##//
+*/
+.f-bold{font-weight: bold !important;}
+.f-normal{font-weight: normal !important;}
+
+/*
+    //## Letter Spacing (5px ~ 15px) ##//
+*/
+.f-letter-spacing-5{letter-spacing: 5px !important;}
+.f-letter-spacing-6{letter-spacing: 6px !important;}
+.f-letter-spacing-7{letter-spacing: 7px !important;}
+.f-letter-spacing-8{letter-spacing: 8px !important;}
+.f-letter-spacing-9{letter-spacing: 9px !important;}
+.f-letter-spacing-10{letter-spacing: 10px !important;}
+.f-letter-spacing-11{letter-spacing: 11px !important;}
+.f-letter-spacing-12{letter-spacing: 12px !important;}
+.f-letter-spacing-13{letter-spacing: 13px !important;}
+.f-letter-spacing-14{letter-spacing: 14px !important;}
+.f-letter-spacing-15{letter-spacing: 15px !important;}
+
+/*
+    //## Floats (Right-Left-None) ##//
+*/
+.float-left{float: left !important;}
+.float-right{float: right !important;}
+.float-none{float:none !important;}
+
+/*
+    //## Text Align(Center-Start) ##//
+*/
+.f-align-center{text-align: center !important;}
+.f-align-start{text-align: start !important;}
+
+/*
+    //## Text Decoration(Underline-None-LineThrough) ##//
+*/
+.t-d-none{text-decoration: none !important;}
+.t-d-underline{text-decoration: underline !important;}
+.t-d-line{text-decoration:line-through !important;}
+
+/*
+    //## Margin&Padding ##//
+*/
+.no-margin{margin:0 !important;}
+.m-top-0{margin-top:0 !important;}
+.m-top-10{margin-top:10px !important;}
+.m-top-20{margin-top:20px !important;}
+.m-bottom-0{margin-bottom:0 !important;}
+.m-bottom-10{margin-bottom:10px !important;}
+.m-bottom-20{margin-bottom:20px !important;}
+.m-left-0{margin-left:0 !important;}
+.m-left-10{margin-left:10px !important;}
+.m-left-20{margin-left:20px !important;}
+.m-right-0{margin-right:0 !important;}
+.m-right-10{margin-right:10px !important;}
+.m-right-20{margin-right:20px !important;}
+.no-padding{padding: 0 !important;}
+.p-top-0{padding-top:0 !important;}
+.p-bottom-0{padding-bottom:0 !important;}
+.p-left-0{padding-left:0 !important;}
+.p-right-0{padding-right:0 !important;}
+
+/*
+    //## Displays(Block-InlineBlock-None) ##//
+*/
+.block{display: block !important;}
+.inline-block{display: inline-block !important;}
+.hidden{display: none !important;}
+
+/*
+    //## Opacity(50% - 0.5) ##//
+*/
+.opacity-5{opacity: 0.5 !important;}
+
+/*
+    //## Width&Height Auto ##//
+*/
+.height-auto{height:auto !important;}
+.width-auto{width: auto !important;}
+
+/*
+    //## Width&Height 100% ##//
+*/
+.height-full{height:100% !important;}
+.width-full{width: 100% !important;}
+
+/*
+    //## Border(None) ##//
+*/
+.border-none{border:none !important;}
+
+/*
+    //## Cursor(Pointer-Default) ##//
+*/
+.cursor-pointer{cursor:pointer !important;}
+.cursor-normal{cursor:default !important;}
+
+/*
+    //## Color(Red-White-Black) ##//
+*/
+.color-red{color: red !important;}
+.color-black{color:black !important;}
+.color-white{color:white !important;}
+
+/*
+    //## Border Radius (None - 1px ~ 10px) ##//
+*/
+.b-radius-0{border-radius:0 !important;}
+.b-radius-1{border-radius:1px !important;}
+.b-radius-2{border-radius:2px !important;}
+.b-radius-3{border-radius:3px !important;}
+.b-radius-4{border-radius:4px !important;}
+.b-radius-5{border-radius:5px !important;}
+.b-radius-6{border-radius:6px !important;}
+.b-radius-7{border-radius:7px !important;}
+.b-radius-8{border-radius:8px !important;}
+.b-radius-9{border-radius:9px !important;}
+.b-radius-10{border-radius:10px !important;}
+
+/*
+    //## List Styles ##//
+*/
+.l-s-none{list-style: none !important;}
+
+/*
+    //## Positions ##//
+*/
+.p-absolute{position: absolute !important;}
+.p-relative{position: relative !important;}
+.p-fixed{position:fixed !important;}
+
+/*
+    //## Box Shadow ##//
+*/
+.b-shadow-0{box-shadow:none !important;-moz-box-shadow: none !important;-webkit-box-shadow: none !important; -o-box-shadow: none !important;}
+
+/*
+	//## Resize ##//
+*/
+.no-resize{resize: none !important;}
+
+/*
+    //## Center Display Block Item ##//
+*/
+.block-center{margin:0 auto;}
+.block-center-important{margin:0 auto !important;}
