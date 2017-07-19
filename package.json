@@ -1,0 +1,24 @@
+{
+    "name": "com.bgg.mangaku",
+    "version": "1.0.0",
+    "displayName": "Mangaku",
+    "cordova": {
+        "platforms": [
+            "android",
+            "browser"
+        ],
+        "plugins": {
+            "cordova-plugin-whitelist": {},
+            "admob": {},
+            "cordova-plugin-file": {}
+        }
+    },
+    "dependencies": {
+        "admob": "^5.5.0",
+        "cordova-android": "~6.2.3",
+        "cordova-browser": "~4.1.0",
+        "cordova-plugin-compat": "^1.0.0",
+        "cordova-plugin-file": "^4.3.3",
+        "cordova-plugin-whitelist": "1"
+    }
+}

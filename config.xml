@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.bgg.mangaku" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Mangaku</name>
+    <description>
+        Online manga okuma uygulaması. (Türkçe)
+    </description>
+    <author email="blackclown0@gmail.com" href="">
+        BGG
+    </author>
+    <content src="index.html" />
+    <allow-navigation href="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <icon density="mdpi" src="md_icon/res/mipmap-mdpi/md_icon.png" />
+        <icon density="hdpi" src="md_icon/res/mipmap-hdpi/md_icon.png" />
+        <icon density="xhdpi" src="md_icon/res/mipmap-xhdpi/md_icon.png" />
+        <icon density="xxhdpi" src="md_icon/res/mipmap-xxhdpi/md_icon.png" />
+        <icon density="xxxhdpi" src="md_icon/res/mipmap-xxxhdpi/md_icon.png" />
+        <allow-intent href="market:*" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+    <preference name="Fullscreen" value="false" />
+    <preference name="Orientation" value="portrait" />
+    <preference name="DisallowOverscroll" value="true" />
+    <preference name="InAppBrowserStorageEnabled" value="true" />
+    <preference name="KeepRunning" value="true" />
+    <preference name="AndroidPersistentFileLocation" value="Internal" />
+    <engine name="android" spec="~6.2.3" />
+    <engine name="browser" spec="~4.1.0" />
+    <plugin name="admob" spec="^5.5.0" />
+    <plugin name="cordova-plugin-file" spec="^4.3.3" />
+    <plugin name="cordova-plugin-whitelist" spec="1" />
+</widget>
